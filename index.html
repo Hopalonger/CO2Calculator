@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CO2 Emission Comparison</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>CO2 Emission Comparison: Gas vs Electric Vehicles</h1>
+    </header>
+
+    <section id="gas-vehicle">
+        <h2>Gas Vehicle</h2>
+        <label>Miles Per Gallon: <input type="number" id="mpg" value ="35"></label>
+        <label>Fuel Type:
+            <select id="fuel-type">
+                <option value="gasoline">Gasoline</option>
+                <option value="diesel">Diesel</option>
+                <option value="propane">Propane</option>
+            </select>
+        </label>
+    </section>
+
+    <section id="electric-vehicle">
+        <h2>Electric Vehicle</h2>
+        <label>Battery Size (Watt Hour): <input type="number" id="battery-size">[Read the box, or manual for information on this could also be in KWH (1000 Watt Hours)]</label>
+        <label>Number of Charges Before Battery Replacement: <input type="number" id="charges" value="400">[This value is normally about 400 charges for Lithium Ion Batteries, Check sources to learn more]</label>
+        <label>Number of Miles Per Charge: <input type="number" id="miles-per-charge"> [How many miles can you drive/ride without recharging] </label>
+        <label>KG of CO2 Per KW of Electricity Produced : <input type="number" id="KG-CO2-Per-Kw" value="0.855"> [How many KG of CO2 are produced Per KW of Electricity (Set to Zero if Using Renewable)] </label>
+        <p> Check sources below for where the default values came from </p>
+    </section> 
+
+
+    <section id="convert">
+        <button id="convert-units">Convert Units</button>
+        <button id="calculate">Calculate</button>
+    </section>
+
+    <section id="results">
+        <h2>Results</h2>
+        <p id="gas-co2"></p>
+        <p id="electric-co2"></p>
+    </section>
+
+    <section id="explanation">
+        <h2>How It Works</h2>
+        <p>
+            This application calculates the CO2 emissions for gas and electric vehicles based on the provided inputs. For gas
+            vehicles, it uses the CO2 emissions per gallon of the selected fuel type and divides it by the miles per gallon of
+            the vehicle. For electric vehicles, it takes the Watt hours of the battery, multiplies it by the CO2 per Watt hour
+            figure for lithium batteries, divides this figure by the number of miles per charge, and then divides it again by
+            the number of charges before battery replacement. This calculator also uses United States National Averages to add 
+            in the CO2 Produced from the electricity that is needed to make the vehicle operate. 
+        </p>
+        <p>
+            The "Convert Units" button allows you to switch between miles and kilometers. When this button is pressed, all text
+            referencing miles is changed to KMH and all calculations are adjusted accordingly.
+        </p>
+        <p>
+            The "Calculate" button performs the calculations and displays the results in KG of CO2 produced per mile driven for
+            both gas and electric vehicles.
+        </p>
+
+    </section>
+
+    <section id="Sources">
+        <h2>Sources</h2>
+        <p>
+            For CO2 Per KG of Fuel: <a href="https://www.eia.gov/environment/emissions/co2_vol_mass.php"> https://www.eia.gov/environment/emissions/co2_vol_mass.php </a> <br>
+            For CO2 Per Kw of Energy: <a href="https://www.eia.gov/tools/faqs/faq.php?id=74&t=11"> https://www.eia.gov/tools/faqs/faq.php?id=74&t=11 </a><br>
+            Number of Charge Cycles for a battery: <a href =
+            "https://batteryuniversity.com/article/bu-808-how-to-prolong-lithium-based-batteries#:~:text=For%20example%2C%20a%20lithium%2Dion,should%20provide%202%2C400%E2%80%934%2C000%20cycles."> BatteryUniversity.com </a> 
+        </p>
+    
+    </section>
+
+        <section id="Notes ">
+            <h2>Important Notes</h2>
+            <p>
+                This calculator is designed to allow someone to compare if purchasing an additional Environmentally friendly Vehicle makes the environmental sense.\
+                 This is not to be used to compare two new vehicle to each other as it does not factor in the impact on the environment production of the Fossil fuel driven vehicle has. There are many 
+                other factors that are to be taken into account such as how clean is energy generation. This does also not account for the impact on the environment production of the electric vehicles frame and supporting components
+            </p>
+            <p> 
+                How to find Battery size Information: 
+                To calculate battery capacity, look for certain keywords such as Volts(V), and Amp Hours (Ah), Watt Hours (Wh) amd Kilo-Watt Hours (KWh)
+                If you find Kilo-Watt Hours please convert the value by 1000 and enter it in the battery size box EX: 20 KWh -> 20,000 Wh
+                if you find Watt Hours, enter that value for battery size 
+                if you Get Volts and Amp hours, multiply both values together: EX: 48V and 26 Ah -> 48 * 26 -> 1248 Wh 
+                Remember google is your friend, and you can most of the time find the value just by searching for the model of the vehicle followed by battery capacity
+            </p>
+        
+        </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
